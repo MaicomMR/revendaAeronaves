@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AirplanesModel;
+use DB;
 
 class AirplaneController extends Controller
 {
@@ -17,6 +18,25 @@ class AirplaneController extends Controller
         $data = AirplanesModel::all();       
         //dd($data); 
         return view('home_cliente', ["data"=>$data]);
+    }
+
+    public function buscaEspecifica(Request $request)
+    {
+        $busca = $request->all();
+        $buscaAr = reset($busca);
+        
+        $data = AirplanesModel::where('name','LIKE',"%{$buscaAr}%")->get();
+        $data = AirplanesModel::where('secondName','LIKE',"%{$buscaAr}%")->get();
+
+ 
+        return view('home_cliente', ["data" => $data]);
+    }
+
+    public function exibe($id)
+    {
+        $data = AirplanesModel::find($id);
+        //dd($data);
+        return view('buyContact', ["data" => $data]);
     }
 
     /**
