@@ -15,8 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'AirplaneController@index');
+Route::get('/homeBase', 'AirplaneController@index');
 
 Route::get('/home/busca/{buscar}', 'AirplaneController@buscaEspecifica')->name('buscaEspecifica');
 
 Route::get('/home/exibe/{buscar}', 'AirplaneController@exibe')->name('aviaoExibe');
+
+Route::get('/cadastro', function () {
+    return view('cadastro');
+})->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
