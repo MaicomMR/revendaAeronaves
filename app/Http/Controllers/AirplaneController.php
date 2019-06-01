@@ -14,8 +14,9 @@ class AirplaneController extends Controller
      */
     public function index()
     {
-        $data = AirplanesModel::all();        
-        return view('home_cliente', $data);
+        $data = AirplanesModel::all();       
+        //dd($data); 
+        return view('home_cliente', ["data"=>$data]);
     }
 
     /**

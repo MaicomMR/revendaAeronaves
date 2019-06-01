@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="<?php echo asset('css/estiloBase.css') ?>" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap" rel="stylesheet">
+    
     <title>Home</title>
 
 </head>
@@ -28,9 +30,28 @@
     </div>
 
 
-<div class="cards">
+    <!-- <div class="cards_field">
+        <div class="card">
+            <div class="card_foto"></div>
+            Nome: Embraer ASDASD <br />
+            Valor: 874.125.123,00
+            <div class="abrir_card">VER MAIS DETALHES</div>
+        </div> -->
 
-</div>
+
+        @foreach($data as $airplane) 
+        <div class="card">
+            <div class="card_foto"></div>
+            Nome: {{$airplane['secondName']}} <br />
+            {{$airplane['name']}} <br />
+            Valor: {{$airplane['value']}}R$
+            
+            <div class="abrir_card">VER MAIS DETALHES</div>
+        </div>
+        @endforeach
+ 
+
+    </div>
 
 </body>
 
