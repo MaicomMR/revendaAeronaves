@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+background-color: rgb(212, 216, 219);
+}
+h1 {
+    margin: 0;
+    padding: 1%;
+}
+.headerHome {
+    width: 100%;
+    background-color: rgba(14, 14, 14, 0.25);
+}
+.headerBuscar {
+    padding: 0.5%;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(14, 14, 14, 0.055);
+}
