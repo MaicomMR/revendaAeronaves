@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'AirplaneController@index');
+
+Route::get('/home/busca/{buscar}', 'AirplaneController@buscaEspecifica')->name('buscaEspecifica');
+
+Route::get('/home/exibe/{buscar}', 'AirplaneController@exibe')->name('aviaoExibe');
