@@ -68,11 +68,12 @@ class AirplaneController extends Controller
     public function store(Request $request)
     {
 
+        //Validações
         $validateData = $request->validate([
-            'nome' => 'required|min:6|max:100',
+            'name' => 'required',
             'secondName' => 'required',
             'flightTime' => 'required',
-            'actualCity' => 'required|min:6|max:100',
+            'actualCity' => 'required',
             'value' => 'required',
             'year' => 'required',
             'observation' => 'required',

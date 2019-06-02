@@ -38,6 +38,10 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->middleware('auth');
 
+Route::get('/estatisticas', function () {
+    return view('stats');
+})->middleware('auth');
+
 
 Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middleware('auth');
 

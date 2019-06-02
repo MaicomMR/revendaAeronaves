@@ -28,38 +28,46 @@
 
     <div class="container-l1">
         <label for="">Modelo:</label> <br />
-        <input type="text" name="name" id="">
+    <input type="text" name="name" id="" value="{{old('name')}}">
 
         <label for="">Nome Da Aeronave:</label> <br />
-        <input type="text" name="secondName" id="">
+        <input type="text" name="secondName" id="" value="{{old('secondName')}}">
 
         <label for="">Fabricante:</label> <br />
-        <input type="text" name="manufacture_id" id="">
+        <input type="text" name="manufacture_id" id="" value="{{old('manufacture_id')}}">
 
         <label for="">Horas de Voo:</label> <br />
-        <input type="number" name="flightTime" id="">
+        <input type="number" name="flightTime" id="" value="{{old('flightTime')}}">
     </div>
     <div class="container-l1">
+        <label for="">Classe:</label> <br />
+        <select name="type" id="">
+            <option value="Monomotor">Monomotor</option>
+            <option value="Bi-Monomotor">Bi-Monomotor</option>
+            <option value="Jato">Jato</option>
+            <option value="Helicóptero">Monomotor</option>
+        </select>
+
         <label for="">Cidade em que esta alocado:</label> <br />
-        <input type="text" name="actualCity" id="actualCity">
+        <input type="text" name="actualCity" id="actualCity" value="{{old('actualCity')}}">
 
         <label for="">Valor:</label> <br />
-        <input type="number" name="value" id="">
+        <input type="number" name="value" id="" value="{{old('value')}}">
 
         <label for="">Ano:</label> <br />
-        <input type="number" name="year" id="">
+        <input type="number" name="year" id="" value="{{old('year')}}">
     </div>
     <div class="container-l1">
         <label for="">Observações:</label> <br />
-        <textarea name="observation" id="" cols="30" rows="8"></textarea>
+        <textarea name="observation" id="" cols="30" rows="8" value="{{old('observation')}}"></textarea>
     </div>
     <div class="container-l1">
         <label for="">Descrição:</label> <br />
-        <textarea name="description" id="" cols="30" rows="8"></textarea>
+        <textarea name="description" id="" cols="30" rows="8" value="{{old('description')}}"></textarea>
     </div>
     <div class="container-l1">
         <label for="">Foto:</label>
-        <input type="file" name="" id="">
+        <input type="file" name="" id="" value="{{old('name')}}">
     </div>
     <div class="container-l1">
         <input type="submit" class="RegisterButton" value="CADASTRAR">

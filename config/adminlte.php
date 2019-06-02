@@ -124,6 +124,11 @@ return [
             'url'         => 'listar',
             'icon'        => 'fa-plus-square-o',            
             'label_color' => 'Info',
+        ],[
+            'text'        => 'Estatísticas',
+            'url'         => 'estatisticas',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'Info',
         ],
         'LABELS',
         [
