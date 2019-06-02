@@ -21,14 +21,24 @@ Route::get('/home/busca/{buscar}', 'AirplaneController@buscaEspecifica')->name('
 
 Route::get('/home/exibe/{buscar}', 'AirplaneController@exibe')->name('aviaoExibe');
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+// ROTAS DO PAINEL DO ADM
 Route::get('/cadastro', function () {
     return view('cadastro');
 })->middleware('auth');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middleware('auth');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('controller', 'AirplaneController')->middleware('auth');

@@ -121,9 +121,9 @@ return [
             'label_color' => 'success',
         ],[
             'text'        => 'Listar Aeronaves',
-            'url'         => 'cadastro',
+            'url'         => 'listar',
             'icon'        => 'fa-plus-square-o',            
-            'label_color' => 'info',
+            'label_color' => 'Info',
         ],
         'LABELS',
         [

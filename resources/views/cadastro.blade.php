@@ -9,37 +9,53 @@
 @stop
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <link rel="stylesheet" href="<?php echo asset('css/estiloBase.css') ?>" type="text/css">
 
 
-<form action="">
+<form method="post" action="{{ route('controller.store') }}" enctype="multipart/form-data">
+
+    {{ csrf_field() }}
+
     <div class="container-l1">
         <label for="">Modelo:</label> <br />
-        <input type="text" name="" id="">
+        <input type="text" name="name" id="">
 
         <label for="">Nome Da Aeronave:</label> <br />
-        <input type="text" name="" id="">
+        <input type="text" name="secondName" id="">
+
+        <label for="">Fabricante:</label> <br />
+        <input type="text" name="manufacture_id" id="">
 
         <label for="">Horas de Voo:</label> <br />
-        <input type="number" name="" id="">
+        <input type="number" name="flightTime" id="">
     </div>
     <div class="container-l1">
         <label for="">Cidade em que esta alocado:</label> <br />
-        <input type="text" name="" id="">
+        <input type="text" name="actualCity" id="actualCity">
 
         <label for="">Valor:</label> <br />
-        <input type="number" name="" id="">
+        <input type="number" name="value" id="">
 
         <label for="">Ano:</label> <br />
-        <input type="number" name="" id="">
+        <input type="number" name="year" id="">
     </div>
     <div class="container-l1">
         <label for="">Observações:</label> <br />
-        <textarea name="" id="" cols="30" rows="8"></textarea>
+        <textarea name="observation" id="" cols="30" rows="8"></textarea>
     </div>
     <div class="container-l1">
         <label for="">Descrição:</label> <br />
-        <textarea name="" id="" cols="30" rows="8"></textarea>
+        <textarea name="description" id="" cols="30" rows="8"></textarea>
     </div>
     <div class="container-l1">
         <label for="">Foto:</label>

@@ -14,7 +14,7 @@ class AirplaneManufactureForeignKey extends Migration
     public function up()
     {
         Schema::table('airplanes', function (Blueprint $table) {
-            $table->integer('manufacture_id')->unsigned(); 
+            $table->integer('manufacture_id')->unsigned()->default(0); 
             $table->foreign('manufacture_id')->references('id')->on('manufactures')->onDelete('restrict');
         });
     }
