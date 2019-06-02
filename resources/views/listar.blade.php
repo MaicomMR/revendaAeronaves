@@ -62,7 +62,7 @@
 
           
         </table>
-
+        {{ $data->links() }}
 
 @stop
 @section('css')

@@ -15,7 +15,7 @@ class AirplaneController extends Controller
      */
     public function index()
     {
-        $data = AirplanesModel::all();       
+        $data = AirplanesModel::paginate(12);     
         //dd($data); 
         return view('home_cliente', ["data"=>$data]);
     }
@@ -23,8 +23,7 @@ class AirplaneController extends Controller
 
     public function indexTableADM()
     {
-        $data = AirplanesModel::all();  
-        // dd($data);
+        $data = AirplanesModel::paginate(10);
         return view('listar', ["data"=>$data]);
     }
 

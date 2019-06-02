@@ -14,24 +14,26 @@
 </head>
 
 <body>
+        
     <div class="headerHome">
         <h1>AeroSul - Revenda de Aeronaves </h1>
     </div>
 
     <div class="headerBuscar">
-    <form method="get" action="{{route('buscaEspecifica', 'busca')}}">
-        <select name="" id="">
-            <option value="EMBRAER">EMBRAER</option>
-            <option value="CESSNA">CESSNA</option>
-            <option value="PIPER">PIPER</option>
-        </select>
-        
-            <input type="text" name="buscar" id="buscar">
-            <button type="submit">BUSCAR</button>
-        </form>
-        
-    </div>
+        <form method="get" action="{{route('buscaEspecifica', 'busca')}}">
+            <select name="" id="">
+                <option value="EMBRAER">EMBRAER</option>
+                <option value="CESSNA">CESSNA</option>
+                <option value="PIPER">PIPER</option>
+            </select>
 
+            <input type="text" name="buscar" id="buscar" style="width: 15vw;">
+            <button type="submit">BUSCAR</button>
+            
+        </form>
+
+    </div>
+    
     @forelse($data as $airplane)
     <div class="card">
         <div class="card_foto"></div>
@@ -40,14 +42,17 @@
         Valor: {{$airplane['value']}}R$
 
         <a href="{{ route('aviaoExibe', $airplane->id)}}">
-        <div class="abrir_card">VER MAIS DETALHES</div></a>
-
+            <div class="abrir_card">VER MAIS DETALHES</div>
+        </a>
     </div>
+    
     @endforeach
 
 
+    
+    <div class="footer">
+            <!-- {{ $data->links() }} -->
     </div>
-
 </body>
 
 </html>
