@@ -19,6 +19,7 @@
         <div class="pageArea">
     <div class="headerHome">
         <h1>AeroSul - Revenda de Aeronaves </h1>
+        
     </div>
 
     <div class="headerBuscar">
@@ -31,7 +32,10 @@
 
             <input type="text" name="buscar" id="buscar" style="width: 15vw;">
             <button type="submit">BUSCAR</button>
-            
+            <span style="float: right;">
+            <a href="{{route('home')}}">
+                ADM</a>
+            </span>
         </form>
 
     </div>

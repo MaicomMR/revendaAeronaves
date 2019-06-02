@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AirplanesModel;
+use App\BuyContactModel;
 use App\ManufacturesModel;
 use Illuminate\Support\Facades\Storage;
 
 use DB;
+use App\Mail\OrderContact;
 
 class AirplaneController extends Controller
 {
@@ -19,7 +21,6 @@ class AirplaneController extends Controller
     public function index()
     {
         $data = AirplanesModel::paginate(12);     
-        //dd($data); 
         return view('home_cliente', ["data"=>$data]);
     }
 
@@ -37,9 +38,7 @@ class AirplaneController extends Controller
         $busca = $request->all();
         $buscaAr = reset($busca);
         
-        $data = AirplanesModel::where('name','LIKE',"%{$buscaAr}%")->get();
-        $data = AirplanesModel::where('secondName','LIKE',"%{$buscaAr}%")->get();
-
+        $data = AirplanesModel::where('name','LIKE',"%{$buscaAr}%")->paginate(10);
  
         return view('home_cliente', ["data" => $data]);
     }
@@ -59,6 +58,29 @@ class AirplaneController extends Controller
     public function create()
     {
         //
+    }
+
+    public function registerContact(Request $request)
+    {
+        $data = $request->all();
+        
+
+            $validateData = $request->validate([
+            'contactName' => 'required',
+            'email' => 'required',
+            'phone' => 'required',]);
+                
+        BuyContactModel::create($data);
+
+        $data = AirplanesModel::paginate(12);     
+        return view('home_cliente', ["data"=>$data]);
+        
+    }
+
+    public function contactList()
+    {
+        $data = BuyContactModel::paginate(10);
+        return view('contactList', ["data"=>$data]);
     }
 
     /**
@@ -158,8 +180,23 @@ class AirplaneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function sendemail()
+    {
+        $destinatario = "maicom_mr@hotmail.com";
+        Mail::to($destinatario)->send(new OrderContact());
+    }
+
     public function destroy($id)
     {
-        //
+        $airplaneId = $id;
+        $airplane = AirplanesModel::find($id);
+        $airplane->delete();
+        
+
+        $data = AirplanesModel::paginate(10);
+
+        return redirect()->route('listar')->with('Aeronave Excluída!');
+
     }
 }

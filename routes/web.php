@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/homeBase', 'AirplaneController@index');
 
+Route::post('/registerContact', 'AirplaneController@registerContact')->name('registerContact');
+
 Route::get('/home/busca/{buscar}', 'AirplaneController@buscaEspecifica')->name('buscaEspecifica');
 
 Route::get('/home/exibe/{buscar}', 'AirplaneController@exibe')->name('aviaoExibe');
@@ -43,4 +45,7 @@ Route::get('/estatisticas', 'AirplaneController@statistics')->name('listar')->mi
 
 Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middleware('auth');
 
+Route::get('/listarContatos', 'AirplaneController@contactList')->name('listarContatos')->middleware('auth');
+
 Route::resource('controller', 'AirplaneController')->middleware('auth');
+

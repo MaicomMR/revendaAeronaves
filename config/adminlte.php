@@ -115,6 +115,12 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'HOME CLIENTE',
+            'url'         => 'homeBase',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Cadastro de Aeronaves',
             'url'         => 'cadastro',
             'icon'        => 'fa-plus-square-o',            
@@ -122,6 +128,11 @@ return [
         ],[
             'text'        => 'Listar Aeronaves',
             'url'         => 'listar',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'Info',
+        ],[
+            'text'        => 'Contatos de Compra',
+            'url'         => 'listarContatos',
             'icon'        => 'fa-plus-square-o',            
             'label_color' => 'Info',
         ],[

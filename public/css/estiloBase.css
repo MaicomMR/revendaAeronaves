@@ -122,6 +122,7 @@ textarea{
 .footer {
     margin-top: 20px;
     float: left;
+    width: 100%;
 }
 
 .pageArea{
