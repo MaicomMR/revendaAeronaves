@@ -30,15 +30,15 @@
             <th>Fabricante</th>
             <th>Somatória</th>
           </tr>
-          @forelse($data as $airplane)
-                {{$marcaNum = $airplane->manufacture_id}}
+          @foreach($data as $airplane)
+                
                 
 
 
                 <tr>
                 <td>{{$airplane->manufacture_id}}</td>
                 <td>{{$airplane['num']}}</td>
-                <td>{{$marcas[$marcaNum]->name}}</td>
+                
                 </tr>             
           @endforeach          
         </table>
