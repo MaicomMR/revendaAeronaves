@@ -36,7 +36,10 @@
     
     @forelse($data as $airplane)
     <div class="card">
-        <div class="card_foto"></div>
+        <div class="card_foto">
+        <img src="{{asset('storage/').'/'.$airplane->photo}}" alt="" style="width: 190px; height: 190px;">
+
+        </div>
         Nome: {{$airplane['secondName']}} <br />
         {{$airplane['name']}} <br />
         {{-- Valor: {{money_format('%.2n', $airplane->value)}}R$ --}}
