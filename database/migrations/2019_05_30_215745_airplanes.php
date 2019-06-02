@@ -21,9 +21,9 @@ class Airplanes extends Migration
             $table->string('actualCity')->default('Não Informado');
             $table->double('value')->default(0);
             $table->string('year')->default(0);
-            $table->string('observation')->default(' ');
+            $table->text('observation');
             $table->string('type')->default('0');
-            $table->string('description')->default(' ');
+            $table->text('description');
             $table->timestamps();
 
         });
