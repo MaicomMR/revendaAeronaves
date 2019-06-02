@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AirplanesModel;
+use App\ManufacturesModel;
+
 use DB;
 
 class AirplaneController extends Controller
@@ -98,6 +100,25 @@ class AirplaneController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function statistics()
+    {
+        //AirplanesModel;
+        //ManufacturesModel;
+
+        $data = AirplanesModel::selectRaw('airplanes.manufacture_id, count(*) as num')
+        ->join('manufactures', 'airplanes.manufacture_id', '=', 'manufactures.id')
+        ->groupBy('airplanes.manufacture_id')
+        ->get(); 
+       
+        $marcas = ManufacturesModel::selectRaw('name')->get(); 
+
+        // dd($data);
+        // dd($marcas);
+        return view('statistics', ['data' => $data, 'marcas' => $marcas]);
+
+
     }
 
     /**
