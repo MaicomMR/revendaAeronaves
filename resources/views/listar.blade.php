@@ -8,7 +8,15 @@
 <h1>AERONAVES CADASTRADAS.</h1>
 @stop
 
+
 @section('content')
+
+@if (session('status'))
+   <div class="alert alert-success">
+      {{ session('status') }}
+   </div> 
+@endif
+
 <style>
         table {
           font-family: arial, sans-serif;
@@ -51,11 +59,23 @@
                 <td>{{$airplane['secondName']}}</td>
                 <td>{{$airplane['manufacture_id']}}</td>
                 <td>{{$airplane['type']}}</td>
-                <td>{{$airplane['flightTime']}}</td>
+                <td>{{$airplane['flightTime']}}h</td>
                 <td>{{$airplane['year']}}</td>
                 <td>{{$airplane['value']}}</td>
-                <td>{{$airplane['created_at']}}</td>  
-                </tr>   
+                <td><img src="{{asset('storage/').'/'.$airplane->photo}}" alt="" style="width: 100px; height: 100;"></td>  
+                
+                
+
+                <td><button type="submit" class="btn btn-primary btn-sm">EDITAR</button></td>
+
+                <form method="POST" action="{{route('controller.destroy', $airplane->id)}}">
+                  {{ method_field('delete')}}
+                  {{ csrf_field() }}
+                  
+
+                <td><button type="submit" class="btn btn-danger btn-sm">APAGAR</button></td>
+              </form>
+              </tr>   
           </div>
           @endforeach
 
