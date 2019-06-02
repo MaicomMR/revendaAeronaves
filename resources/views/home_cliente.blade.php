@@ -37,8 +37,10 @@
         <div class="card_foto"></div>
         Nome: {{$airplane['secondName']}} <br />
         {{$airplane['name']}} <br />
-        Valor: {{$airplane['value']}}R$
+        {{-- Valor: {{money_format('%.2n', $airplane->value)}}R$ --}}
+        Valor: {{number_format($airplane->value, 2, ',', ' ')}}R$
 
+        
         <a href="{{ route('aviaoExibe', $airplane->id)}}">
         <div class="abrir_card">VER MAIS DETALHES</div></a>
 
