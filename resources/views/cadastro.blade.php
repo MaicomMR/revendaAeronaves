@@ -85,11 +85,11 @@
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   <script src="/js/jquery.mask.min.js"></script>
 
-  <script>
+  {{-- <script>
     $(document).ready(function() {
       $('#value').mask('.###.###.##0,00', {reverse: true});
     });
-  </script>  
+  </script>   --}}
 @endsection
 
 

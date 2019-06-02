@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\AirplanesModel;
 use App\ManufacturesModel;
+use Illuminate\Support\Facades\Storage;
 
 use DB;
 
@@ -69,6 +70,7 @@ class AirplaneController extends Controller
     public function store(Request $request)
     {
 
+        $dados = $request->all();
         //Validações
         $validateData = $request->validate([
             'name' => 'required',
@@ -83,8 +85,15 @@ class AirplaneController extends Controller
             'manufacture_id' => 'required']);
 
 
-        //dd($request);
-        $dados = $request->all();
+            $path = $request->file('photo')->store('fotos', 'public');
+
+            $dados['photo'] = $path;
+        // dd($path);
+        // dd($dados);
+        
+
+
+        
         AirplanesModel::create($dados);
 
         return view('home');
