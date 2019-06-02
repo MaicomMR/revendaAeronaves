@@ -20,6 +20,16 @@ class AirplaneController extends Controller
         return view('home_cliente', ["data"=>$data]);
     }
 
+
+    public function indexTableADM()
+    {
+        $data = AirplanesModel::all();  
+        // dd($data);
+        return view('listar', ["data"=>$data]);
+    }
+
+
+
     public function buscaEspecifica(Request $request)
     {
         $busca = $request->all();
@@ -57,7 +67,26 @@ class AirplaneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //Validações
+        $validateData = $request->validate([
+            'name' => 'required',
+            'secondName' => 'required',
+            'flightTime' => 'required',
+            'actualCity' => 'required',
+            'value' => 'required',
+            'year' => 'required',
+            'observation' => 'required',
+            'type' => 'required',
+            'description' => 'required',
+            'manufacture_id' => 'required']);
+
+
+        //dd($request);
+        $dados = $request->all();
+        AirplanesModel::create($dados);
+
+        return view('home');
     }
 
     /**

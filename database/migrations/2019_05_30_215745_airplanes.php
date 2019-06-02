@@ -15,15 +15,15 @@ class Airplanes extends Migration
     {
         Schema::create('airplanes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('secondName');                       
-            $table->string('flightTime');
-            $table->string('actualCity');
-            $table->double('value');
-            $table->string('year');
-            $table->string('observation');
-            $table->string('type');
-            $table->string('description');
+            $table->string('name')->default(' ');
+            $table->string('secondName')->default(' ');                       
+            $table->string('flightTime')->default('Não Informado');
+            $table->string('actualCity')->default('Não Informado');
+            $table->double('value')->default(0);
+            $table->string('year')->default(0);
+            $table->string('observation')->default(' ');
+            $table->string('type')->default('0');
+            $table->string('description')->default(' ');
             $table->timestamps();
 
         });

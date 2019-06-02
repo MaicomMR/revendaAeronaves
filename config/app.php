@@ -162,6 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        // ADMIN LTE
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
