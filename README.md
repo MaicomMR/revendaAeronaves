@@ -15,9 +15,13 @@ create database command:
 CREATE DATABASE IF NOT EXISTS revendaaeronaves;
 
 
+php artisan storage:link
+
 Dependências:
 
 Admin LTE
 Como Instalar:
 Execute o comando na basta mãe do projeto.
 ```composer require jeroennoten/laravel-adminlte```
+
+
