@@ -38,8 +38,9 @@
 
         <label for="">Horas de Voo:</label> <br />
         <input type="number" name="flightTime" id="" value="{{old('flightTime')}}">
-    </div>
-    <div class="container-l1">
+
+
+
         <label for="">Classe:</label> <br />
         <select name="type" id="">
             <option value="Monomotor">Monomotor</option>
@@ -47,29 +48,26 @@
             <option value="Jato">Jato</option>
             <option value="Helicóptero">Monomotor</option>
         </select>
-
+    
         <label for="">Cidade em que esta alocado:</label> <br />
         <input type="text" name="actualCity" id="actualCity" value="{{old('actualCity')}}">
-
+    </div>
+    <div class="container-l1">
         <label for="">Valor:</label> <br />
         <input type="number" name="value" id="" value="{{old('value')}}">
 
         <label for="">Ano:</label> <br />
         <input type="number" name="year" id="" value="{{old('year')}}">
-    </div>
-    <div class="container-l1">
+
         <label for="">Observações:</label> <br />
-        <textarea name="observation" id="" cols="30" rows="8" value="{{old('observation')}}"></textarea>
-    </div>
-    <div class="container-l1">
+        <input type="text" name="observation" id="" value="{{old('observation')}}">       
+
         <label for="">Descrição:</label> <br />
-        <textarea name="description" id="" cols="30" rows="8" value="{{old('description')}}"></textarea>
-    </div>
-    <div class="container-l1">
+        <input type="text" name="description" id="" value="{{old('description')}}">
+
         <label for="">Foto:</label>
-        <input type="file" name="" id="" value="{{old('name')}}">
-    </div>
-    <div class="container-l1">
+        <input type="file" name="" id="" value="{{old('name')}}"><br/>
+
         <input type="submit" class="RegisterButton" value="CADASTRAR">
     </div>
 </form>
