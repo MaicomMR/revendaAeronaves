@@ -165,6 +165,9 @@ return [
         // ADMIN LTE
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
+        // DOM PDF
+        Barryvdh\DomPDF\ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
