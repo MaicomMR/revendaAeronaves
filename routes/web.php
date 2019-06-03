@@ -14,3 +14,40 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/homeBase', 'AirplaneController@index');
+
+Route::post('/registerContact', 'AirplaneController@registerContact')->name('registerContact');
+
+Route::get('/home/busca/{buscar}', 'AirplaneController@buscaEspecifica')->name('buscaEspecifica');
+
+Route::get('/home/exibe/{buscar}', 'AirplaneController@exibe')->name('aviaoExibe');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+// ROTAS DO PAINEL DO ADM
+Route::get('/cadastro', function () {
+    return view('cadastro');
+})->middleware('auth');
+
+
+Route::get('/estatisticas', 'AirplaneController@statistics')->name('listar')->middleware('auth');
+
+Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middleware('auth');
+
+Route::get('/listarContatos', 'AirplaneController@contactList')->name('listarContatos')->middleware('auth');
+
+Route::get('/aircraftReport', 'AirplaneController@pdfReport')->name('aircraftReport')->middleware('auth');
+
+Route::resource('controller', 'AirplaneController')->middleware('auth');
+
