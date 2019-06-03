@@ -115,6 +115,12 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'HOME CLIENTE',
+            'url'         => 'homeBase',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Cadastro de Aeronaves',
             'url'         => 'cadastro',
             'icon'        => 'fa-plus-square-o',            
@@ -125,8 +131,18 @@ return [
             'icon'        => 'fa-plus-square-o',            
             'label_color' => 'Info',
         ],[
+            'text'        => 'Contatos de Compra',
+            'url'         => 'listarContatos',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'Info',
+        ],[
             'text'        => 'Estatísticas',
             'url'         => 'estatisticas',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'Info',
+        ],[
+            'text'        => 'RELATÓRIO PDF',
+            'url'         => 'aircraftReport',
             'icon'        => 'fa-plus-square-o',            
             'label_color' => 'Info',
         ],
