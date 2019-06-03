@@ -34,7 +34,7 @@ class airplanesForTest extends Seeder
                 'actualCity' => "Miami",
                 'value' => 2900000,
                 'year' => 1984,
-                'type' => 'Monomotor',
+                'type' => 'Jato',
                 'description' => '# 8.040 TT
                 # Ciclos 7.000
                 # Horas disponíveis Motores: 1.740 h para o Overhal
