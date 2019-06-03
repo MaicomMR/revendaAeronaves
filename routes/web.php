@@ -47,5 +47,7 @@ Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middl
 
 Route::get('/listarContatos', 'AirplaneController@contactList')->name('listarContatos')->middleware('auth');
 
+Route::get('/aircraftReport', 'AirplaneController@pdfReport')->name('aircraftReport')->middleware('auth');
+
 Route::resource('controller', 'AirplaneController')->middleware('auth');
 

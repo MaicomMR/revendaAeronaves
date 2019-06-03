@@ -8,6 +8,8 @@ use App\BuyContactModel;
 use App\ManufacturesModel;
 use Illuminate\Support\Facades\Storage;
 
+
+
 use DB;
 use App\Mail\OrderContact;
 
@@ -199,4 +201,14 @@ class AirplaneController extends Controller
         return redirect()->route('listar')->with('Aeronave Excluída!');
 
     }
+
+
+
+    ///RELATÓRIO PDF
+    public function pdfReport()
+    {
+        $data = AirplanesModel::paginate(10);
+        return \PDF::loadview('admin.airplanesReport', ["data"=>$data])->stream();
+    }
+    
 }

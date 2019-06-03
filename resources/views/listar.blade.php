@@ -34,7 +34,6 @@
           background-color: #dddddd;
         }
         </style>
-        </head>
                 
         <table>
           <tr>

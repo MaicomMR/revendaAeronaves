@@ -140,6 +140,11 @@ return [
             'url'         => 'estatisticas',
             'icon'        => 'fa-plus-square-o',            
             'label_color' => 'Info',
+        ],[
+            'text'        => 'RELATÓRIO PDF',
+            'url'         => 'aircraftReport',
+            'icon'        => 'fa-plus-square-o',            
+            'label_color' => 'Info',
         ],
         'LABELS',
         [
