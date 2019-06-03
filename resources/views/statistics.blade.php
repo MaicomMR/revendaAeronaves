@@ -24,27 +24,6 @@
         }
         </style>
         </head>
-                
-        <table>
-          <tr>
-            <th>Fabricante</th>
-            <th>Somatória</th>
-          </tr>
-          @foreach($data as $airplane)
-                
-                
-
-
-                <tr>
-                <td>{{$airplane->manufacture_id}}</td>
-                <td>{{$airplane['num']}}</td>
-                
-                </tr>             
-          @endforeach          
-        </table>
-
-
-
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -53,7 +32,7 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+        var data1 = google.visualization.arrayToDataTable([
             
           ['Task', 'Hours per Day'],
          
@@ -63,18 +42,43 @@
         ]);
 
 
-        var options = {
+        var options1 = {
           title: 'Aeronaves Organizadas por Fabricante'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
 
-        chart.draw(data, options);
+        chart1.draw(data1, options1);
+ 
+        var data2 = google.visualization.arrayToDataTable([
+            
+          ['Tipo', 'Quantidade'],
+         
+        @foreach ($data2 as $airplane)
+        {!! "['$airplane->type', $airplane->num]," !!}
+        @endforeach
+        ]);
+
+
+        var options2 = {
+          title: 'Aeronaves Organizadas por Tipo'
+        };
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart2.draw(data2, options2);
       }
+
+
+    
     </script>
   </head>
+
+  
   <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    
+    <div id="piechart2" style="width: 900px; height: 500px;" style="float: left;"></div>
+    <div id="piechart1" style="width: 900px; height: 500px;" style="float: left;"></div>
   </body>
 </html>
 

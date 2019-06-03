@@ -7,11 +7,11 @@ use App\AirplanesModel;
 use App\BuyContactModel;
 use App\ManufacturesModel;
 use Illuminate\Support\Facades\Storage;
-
-
+use App\Mail\OrderContact;
+use Illuminate\Support\Facades\Mail;
 
 use DB;
-use App\Mail\OrderContact;
+
 
 class AirplaneController extends Controller
 {
@@ -144,11 +144,13 @@ class AirplaneController extends Controller
         ->groupBy('airplanes.manufacture_id')
         ->get(); 
        
-        $marcas = ManufacturesModel::selectRaw('name')->get(); 
+        $data2 = AirplanesModel::selectRaw('airplanes.type, count(*) as num')->groupBy('airplanes.type')->get();
+
+
 
         // dd($data);
         // dd($marcas);
-        return view('statistics', ['data' => $data, 'marcas' => $marcas]);
+        return view('statistics', ['data' => $data, 'data2' => $data2]);
 
 
     }
@@ -207,8 +209,12 @@ class AirplaneController extends Controller
     ///RELATÓRIO PDF
     public function pdfReport()
     {
-        $data = AirplanesModel::paginate(10);
-        return \PDF::loadview('admin.airplanesReport', ["data"=>$data])->stream();
+       
+        Mail::to("maicom_mr@hotmail.com")->send(new OrderContact());
+        //dd($destinatario);
+
+        //$data = AirplanesModel::paginate(10);
+        //return \PDF::loadview('admin.airplanesReport', ["data"=>$data])->stream();
     }
     
 }
