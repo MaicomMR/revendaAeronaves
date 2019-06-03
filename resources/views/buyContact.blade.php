@@ -41,7 +41,7 @@
         Localizado em: {{$data['actualCity']}} <br />
         Ano: {{$data['year']}} <br />
         Tipo: {{$data['type']}} <br />
-        Valor: {{$data['value']}} <br />
+        Valor: {{number_format($data->value, 2, ',', '.')}}R$ <br />
         Observações: {{$data['observation']}} <br />
         Descrição: {{$data['description']}} <br />
     </div>
