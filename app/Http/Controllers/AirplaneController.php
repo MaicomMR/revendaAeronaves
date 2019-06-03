@@ -73,6 +73,7 @@ class AirplaneController extends Controller
             'phone' => 'required',]);
                 
         BuyContactModel::create($data);
+        Mail::to("maicom_mr@hotmail.com")->send(new OrderContact());
 
         $data = AirplanesModel::paginate(12);     
         return view('home_cliente', ["data"=>$data]);
@@ -209,12 +210,8 @@ class AirplaneController extends Controller
     ///RELATÓRIO PDF
     public function pdfReport()
     {
-       
-        Mail::to("maicom_mr@hotmail.com")->send(new OrderContact());
-        //dd($destinatario);
-
-        //$data = AirplanesModel::paginate(10);
-        //return \PDF::loadview('admin.airplanesReport', ["data"=>$data])->stream();
+        $data = AirplanesModel::all();
+        return \PDF::loadview('admin.airplanesReport', ["data"=>$data])->stream();
     }
     
 }

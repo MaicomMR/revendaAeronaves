@@ -1,5 +1,14 @@
 # AeroSul - Revenda Aeronaves
 >Configurar o .env
+ENVIO DE E-AMIL
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=laravelprova@gmail.com
+MAIL_PASSWORD=123456789mmr
+MAIL_ENCRYPTION=tls
+
+
 
 Criar um banco de dados seguindo estes padrões:
 
