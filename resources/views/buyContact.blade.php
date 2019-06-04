@@ -74,7 +74,7 @@
                 <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Telefone:</label>
                         <div class="col-sm-10">
-                                <br/><input type="text" class="form-control" id="phone" name="phone" value="{{old('phone')}}">
+                                <br/><input type="text" class="form-control" id="phone" name="phone" maxlength="18" value="{{old('phone')}}">
                         </div>
                     </div>
             <button type="submit" class="btn btn-primary">ENTRAR EM CONTATO</button>
