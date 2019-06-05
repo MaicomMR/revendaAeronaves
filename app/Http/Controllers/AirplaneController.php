@@ -162,9 +162,14 @@ class AirplaneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {
-        //
+        // dd($id);
+        $data = AirplanesModel::find($id);
+        // dd($data);
+        return view('editar', ['data' => $data]);
+
     }
 
     /**
@@ -176,7 +181,24 @@ class AirplaneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($id);
+        $dados = $request->all();
+        
+        $reg = AirplanesModel::find($id);
+
+        $path = $request->file('photo')->store('fotos', 'public');
+        $reg['photo'] = $path;
+
+
+        $alt = $reg->update($dados);
+
+        if ($alt) {
+            return redirect()->route('listar')
+                   ->with('status', 'Aeronave editada com sucesso');
+        } else {
+            return redirect()->route('listar')
+                   ->with('status', 'Opa... por algum motivo a eeronave não pode ser editadap');
+        }  
     }
 
     /**
