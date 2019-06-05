@@ -74,7 +74,7 @@
                 <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Telefone:</label>
                         <div class="col-sm-10">
-                                <br/><input type="text" class="form-control" id="phone" name="phone" maxlength="18" value="{{old('phone')}}">
+                                <br/><input type="text" class="form-control" id="phone" name="phone" maxlength="16" value="{{old('phone')}}" placeholder="(XX) 9-0000-0000">
                         </div>
                     </div>
             <button type="submit" class="btn btn-primary">ENTRAR EM CONTATO</button>
@@ -82,7 +82,7 @@
     </div>
     <script>
             $(document).ready(function() {
-              $('#phone').mask('(##) # ## ## ## ##');
+              $('#phone').mask('(##) #-####-####');
             });
           </script>  
 </body>

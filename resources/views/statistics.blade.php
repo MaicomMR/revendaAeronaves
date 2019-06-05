@@ -68,8 +68,6 @@
 
         chart2.draw(data2, options2);
       }
-
-
     
     </script>
   </head>

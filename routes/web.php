@@ -38,12 +38,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ROTAS DO PAINEL DO ADM
 Route::get('/cadastro', function () {
     return view('cadastro');
-})->middleware('auth');
+})->name('cadastro')->middleware('auth');
 
+Route::get('/editar', function () {
+    return view('editar');
+})->name('editar')->middleware('auth');
 
 Route::get('/estatisticas', 'AirplaneController@statistics')->name('listar')->middleware('auth');
 
 Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middleware('auth');
+
+Route::get('/edit', 'AirplaneController@edit')->name('edit')->middleware('auth');
 
 Route::get('/listarContatos', 'AirplaneController@contactList')->name('listarContatos')->middleware('auth');
 

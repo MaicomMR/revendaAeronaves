@@ -63,10 +63,13 @@
                 <td>{{$airplane['value']}}</td>
                 <td><img src="{{asset('storage/').'/'.$airplane->photo}}" alt="" style="width: 100px; height: 100;"></td>  
                 
+
+                   <form method="GET" action="{{route('controller.edit', $airplane->id)}}">
+                  {{-- {{ csrf_field() }} --}}
+                  {{-- {{dd($airplane)}} --}}
                 
-
                 <td><button type="submit" class="btn btn-primary btn-sm">EDITAR</button></td>
-
+                   </form>
                 <form method="POST" action="{{route('controller.destroy', $airplane->id)}}">
                   {{ method_field('delete')}}
                   {{ csrf_field() }}

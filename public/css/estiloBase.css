@@ -33,7 +33,7 @@ h1 {
 .card_foto {
     background-color: blueviolet;
     width: 210px;
-    height: 210px;
+    height: 190px;
 }
 
 .abrir_card {
@@ -55,21 +55,22 @@ h1 {
 .airplaneData {
     text-align: center;
     float: left;
-    background-color: gray;
+    background-color: rgb(224, 224, 224);
     width: 30vw;
     height: 30vw;
 }
 .airplanePhoto {
+    margin: 0px 4px 0px 4px;
     text-align: center;
     float: left;
-    background-color: rgb(70, 65, 65);
+    /* background-color: rgb(70, 65, 65); */
     width: 30vw;
     height: 30vw;
 }
 .airplaneContact{
     text-align: center;
     float: left;
-    background-color: rgb(173, 171, 171);
+    background-color: rgb(224, 224, 224);
     width: 38vw;
     height: 30vw;
 }
