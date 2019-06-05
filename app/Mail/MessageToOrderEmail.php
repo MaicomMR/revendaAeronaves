@@ -2,20 +2,17 @@
 
 namespace App\Mail;
 
-use App\BuyContactModel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OrderContact extends Mailable
+class MessageToOrderEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $data;
     public $emailData;
-
-
     public function __construct($data, $emailData)
     {
 
@@ -30,7 +27,7 @@ class OrderContact extends Mailable
     public function build()
     {
         // dd($this->photoPath);
-        return $this->view('mail.emailOrderContact')->with($this->data , $this->emailData)->subject('Contato Comprador');
+        return $this->view('mail.emailToOrderContact')->with($this->data , $this->emailData)->subject('Contato AeroSul');
         // ->attachFromStorage($this->photoPath);
     }
 }

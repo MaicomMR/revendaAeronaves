@@ -7,11 +7,13 @@ use App\AirplanesModel;
 use App\BuyContactModel;
 use App\ManufacturesModel;
 use Illuminate\Support\Facades\Storage;
-use App\Mail\OrderContact;
 use Illuminate\Support\Facades\Mail;
 
 use DB;
 
+//emails
+use App\Mail\OrderContact;
+use App\Mail\MessageToOrderEmail;
 
 class AirplaneController extends Controller
 {
@@ -72,8 +74,22 @@ class AirplaneController extends Controller
             'email' => 'required',
             'phone' => 'required',]);
                 
+            $emailData = AirplanesModel::find($request->productId);
+
+                
+                // $emailData2 = array($emailData->name, $emailData->secondName, $emailData->flightTime, $emailData->value, $emailData->photo);
+            
+            
+                // dd($emailData);
+
+                
+
+
+
         BuyContactModel::create($data);
-        Mail::to("maicom_mr@hotmail.com")->send(new OrderContact());
+        Mail::to("maicom_mr@hotmail.com")->send(new OrderContact($data, $emailData));
+        // dd($request->email);
+        Mail::to($request->email)->send(new MessageToOrderEmail($data, $emailData));
 
         $data = AirplanesModel::paginate(12);     
         return view('home_cliente', ["data"=>$data]);
