@@ -48,6 +48,9 @@ Route::get('/estatisticas', 'AirplaneController@statistics')->name('listar')->mi
 
 Route::get('/listar', 'AirplaneController@indexTableADM')->name('listar')->middleware('auth');
 
+Route::get('/api', 'ControllerAPI@api');
+
+
 Route::get('/edit', 'AirplaneController@edit')->name('edit')->middleware('auth');
 
 Route::get('/listarContatos', 'AirplaneController@contactList')->name('listarContatos')->middleware('auth');
