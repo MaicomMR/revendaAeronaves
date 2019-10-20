@@ -43,7 +43,7 @@
     @forelse($data as $airplane)
     <div class="card">
         <div class="card_foto">
-        <img src="{{asset('storage/').'/'.$airplane->photo}}" alt="" style="width: 210px; height: 190px;">
+        <img src="{{asset('images/covers').'/'.$airplane->photo}}" alt="" style="width: 210px; height: 190px;">
 
         </div>
         Nome: {{$airplane['secondName']}} <br />

@@ -46,7 +46,7 @@
         Descrição: {{$data['description']}} <br />
     </div>
     <div class="airplanePhoto">
-            <img src="{{asset('storage/').'/'.$data->photo}}" alt="" style="width: 100%;">
+            <img src="{{asset('images/covers').'/'.$data->photo}}" alt="" style="width: 100%;">
     </div>
     <div class="airplaneContact">
 

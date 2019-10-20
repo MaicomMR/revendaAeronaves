@@ -87,9 +87,9 @@ class AirplaneController extends Controller
 
 
         BuyContactModel::create($data);
-        Mail::to("maicom_mr@hotmail.com")->send(new OrderContact($data, $emailData));
+        //Mail::to("maicom_mr@hotmail.com")->send(new OrderContact($data, $emailData));
         // dd($request->email);
-        Mail::to($request->email)->send(new MessageToOrderEmail($data, $emailData));
+        //Mail::to($request->email)->send(new MessageToOrderEmail($data, $emailData));
 
         $data = AirplanesModel::paginate(12);     
         return view('home_cliente', ["data"=>$data]);
@@ -125,16 +125,10 @@ class AirplaneController extends Controller
             'description' => 'required',
             'manufacture_id' => 'required']);
 
-
-            $path = $request->file('photo')->store('fotos', 'public');
+            $path = $request->file('photo')->store('fotos', 'public_covers');
 
             $dados['photo'] = $path;
-        // dd($path);
-        // dd($dados);
-        
 
-
-        
         AirplanesModel::create($dados);
 
         return view('home');
