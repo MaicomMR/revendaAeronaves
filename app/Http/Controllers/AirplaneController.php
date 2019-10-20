@@ -124,10 +124,11 @@ class AirplaneController extends Controller
             'type' => 'required',
             'description' => 'required',
             'manufacture_id' => 'required']);
-            $path = $request->file('photo')->store('fotos', 'public');
+
+            $path = $request->file('photo')->store('fotos', 'public_covers');
+
             $dados['photo'] = $path;
-        // dd($path);
-        // dd($dados);
+
         AirplanesModel::create($dados);
 
         return view('home');
