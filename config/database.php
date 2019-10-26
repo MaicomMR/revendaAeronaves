@@ -1,5 +1,7 @@
 <?php
 
+$DATABASE_URL = parse_url("postgres://alstxqmvqvmeuk:df5b327ac0dd48d7d6dc8b6a8bf0c7ad3aaa034136cc3f359af29714a36a603e@ec2-54-225-115-177.compute-1.amazonaws.com:5432/dam7d3vvusb811");
+
 use Illuminate\Support\Str;
 
 return [
@@ -17,6 +19,8 @@ return [
 
     'default' => env('DB_CONNECTION', 'pgsql'),
 
+
+    
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -32,6 +36,7 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
+    
 
     'connections' => [
 
@@ -63,14 +68,28 @@ return [
             ]) : [],
         ],
 
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'url' => env('postgres://alstxqmvqvmeuk:df5b327ac0dd48d7d6dc8b6a8bf0c7ad3aaa034136cc3f359af29714a36a603e@ec2-54-225-115-177.compute-1.amazonaws.com:5432/dam7d3vvusb811'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'forge'),
+        //     'username' => env('DB_USERNAME', 'forge'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
+
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('postgres://alstxqmvqvmeuk:df5b327ac0dd48d7d6dc8b6a8bf0c7ad3aaa034136cc3f359af29714a36a603e@ec2-54-225-115-177.compute-1.amazonaws.com:5432/dam7d3vvusb811'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => $DATABASE_URL["host"],
+            'port' => $DATABASE_URL["port"],
+            'database' =>  ltrim($DATABASE_URL["path"], "/"),
+            'username' =>  $DATABASE_URL["user"],
+            'password' =>  $DATABASE_URL["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
