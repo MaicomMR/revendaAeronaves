@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\AirplanesModel;
 use App\BuyContactModel;
+use App\AirplaneInsertApi;
 use App\ManufacturesModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
@@ -14,9 +15,32 @@ use DB;
 //emails
 use App\Mail\OrderContact;
 use App\Mail\MessageToOrderEmail;
+use Carbon\Carbon;
 
 class AirplaneController extends Controller
 {
+
+
+    
+
+    public function apiCreate(Request $request)
+    {
+        $airplane = new AirplanesModel;
+        $airplane->name = $request->input('name');
+        $airplane->secondName = $request->input('secondName');
+        $airplane->flightTime = $request->input('flightTime');
+        $airplane->actualCity = $request->input('actualCity');
+        $airplane->value = $request->input('value');
+        $airplane->year = $request->input('year');
+        $airplane->observation = $request->input('observation');
+        $airplane->type = $request->input('type');
+        $airplane->description = $request->input('description');
+        $airplane->manufacture_id = '1';
+        $airplane->save();
+        return;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
