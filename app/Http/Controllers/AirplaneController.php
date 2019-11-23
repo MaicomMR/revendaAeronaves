@@ -19,10 +19,9 @@ use Carbon\Carbon;
 
 class AirplaneController extends Controller
 {
-
-
-    
-
+    // Método responsável por armazenar no banco de dados da aplicação
+    // Para garantir a asertividade deve ser "disparado" um arquivo JSON com os campos a baixo
+    // O método do disparo deve ser POST
     public function apiCreate(Request $request)
     {
         $airplane = new AirplanesModel;

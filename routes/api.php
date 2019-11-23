@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+// Rota da API disponibilizada para inserir novos registros de aeronaves
+// Para mais detalhes verificar o método 'apiCreate" na Controller 'AirplaneController'
 Route::post("/apiCreate", "AirplaneController@apiCreate");
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
