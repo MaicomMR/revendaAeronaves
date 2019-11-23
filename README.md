@@ -26,8 +26,16 @@ Este aplicativo será desenvolvido utilizando o Framework React Native, visando 
 ## Links de interesse
 
 Home do site web: [http://revendaaeronaves.herokuapp.com/homeBase](http://revendaaeronaves.herokuapp.com/homeBase)
+
 Aplicação Mobile: [https://exp.host/@maicom_mr/sistemasDistribuidosApp](https://exp.host/@maicom_mr/sistemasDistribuidosApp)
 
 ## Desenvolvedor
 
 Maicom de Macedo Rodeghiero
+
+
+## Repositórios
+
+Web - https://github.com/MaicomMR/revendaAeronaves
+
+Mobile - https://github.com/MaicomMR/sistemasDistribuidosApp
